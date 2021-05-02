@@ -1,37 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content />
-        <meta name="author" content />
-        <title>Home-Bloggy</title>
-        <link href="css/styles.css" rel="stylesheet" />
-        <link rel="icon" type="image/x-icon" href="img/favicon.png" />
-    </head>
-    <body>
+<?php require_once("./includes/header.php"); ?>
         <div id="layoutDefault">
             <div id="layoutDefault_content">
                 <main>
 
                     <nav class="navbar navbar-marketing navbar-expand-lg bg-white navbar-light">
                         <div class="container">
-                            <a class="navbar-brand text-dark" href="index.html">Bloggy</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><img src="img/menu.png" style="height:20px;width:25px" /><i data-feather="menu"></i></button>
+                            <a class="navbar-brand text-dark" href="index.php">Bloggy</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><img src="img/menu.png" style="height:20px;width:25px" /><i data-feather="menu"></i></button>
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="navbar-nav ml-auto mr-lg-5">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="index.html">Home </a>
+                                        <a class="nav-link" href="index.php">Home </a>
                                     </li>
                                     <li class="nav-item dropdown no-caret">
-                                        <a class="nav-link" href="contact.html">Contact</a>
+                                        <a class="nav-link" href="contact.php">Contact</a>
                                     </li>
                                     <li class="nav-item dropdown no-caret">
-                                        <a class="nav-link" href="about.html">About</a>
+                                        <a class="nav-link" href="about.php">About</a>
                                     </li>
                                 </ul>
-                                <a class="btn-teal btn rounded-pill px-4 ml-lg-4" href="backend/signin.html">Sign in<i class="fas fa-arrow-right ml-1"></i></a>
-                                <a class="btn-teal btn rounded-pill px-4 ml-lg-4" href="backend/signup.html">Sign up<i class="fas fa-arrow-right ml-1"></i></a>
+                                <a class="btn-teal btn rounded-pill px-4 ml-lg-4" href="backend/signin.php">Sign in<i class="fas fa-arrow-right ml-1"></i></a>
+                                <a class="btn-teal btn rounded-pill px-4 ml-lg-4" href="backend/signup.php">Sign up<i class="fas fa-arrow-right ml-1"></i></a>
                             </div>
                         </div>
                     </nav>
@@ -316,65 +304,6 @@
                                 </div>
                             </div>
 
-                            <h1 class="pt-5">Browse by categories:</h1>
-                            <hr />
-                            <div class="row features text-center mb-5">
-                                <div class="col-lg-4 col-md-6 mb-5">
-                                    <a class="card card-link border-top border-top-lg border-primary h-100 lift" href="#!"
-                                        ><div class="card-body p-5">
-                                            <div class="icon-stack icon-stack-lg bg-primary-soft text-primary mb-4"><i data-feather="user"></i></div>
-                                            <h6>Account</h6>
-                                        </div>
-                                        <div class="card-footer bg-transparent pt-0 pb-5"><div class="badge badge-pill badge-light font-weight-normal px-3 py-2">21 Posts</div></div></a
-                                    >
-                                </div>
-                                <div class="col-lg-4 col-md-6 mb-5">
-                                    <a class="card card-link border-top border-top-lg border-green h-100 lift" href="#!"
-                                        ><div class="card-body p-5">
-                                            <div class="icon-stack icon-stack-lg bg-green-soft text-green mb-4"><i data-feather="clock"></i></div>
-                                            <h6>Integrations</h6>
-                                        </div>
-                                        <div class="card-footer bg-transparent pt-0 pb-5"><div class="badge badge-pill badge-light font-weight-normal px-3 py-2">9 Posts</div></div></a
-                                    >
-                                </div>
-                                <div class="col-lg-4 col-md-6 mb-5">
-                                    <a class="card card-link border-top border-top-lg border-yellow h-100 lift" href="#!"
-                                        ><div class="card-body p-5">
-                                            <div class="icon-stack icon-stack-lg bg-yellow-soft text-yellow mb-4"><i data-feather="clock"></i></div>
-                                            <h6>Billing</h6>
-                                        </div>
-                                        <div class="card-footer bg-transparent pt-0 pb-5"><div class="badge badge-pill badge-light font-weight-normal px-3 py-2">14 Posts</div></div></a
-                                    >
-                                </div>
-                                <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
-                                    <a class="card card-link border-top border-top-lg border-purple h-100 lift" href="#!"
-                                        ><div class="card-body p-5">
-                                            <div class="icon-stack icon-stack-lg bg-purple-soft text-purple mb-4"><i data-feather="clock"></i></div>
-                                            <h6>Organizations</h6>
-                                        </div>
-                                        <div class="card-footer bg-transparent pt-0 pb-5"><div class="badge badge-pill badge-light font-weight-normal px-3 py-2">17 Posts</div></div></a
-                                    >
-                                </div>
-                                <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
-                                    <a class="card card-link border-top border-top-lg border-red h-100 lift" href="#!"
-                                        ><div class="card-body p-5">
-                                            <div class="icon-stack icon-stack-lg bg-red-soft text-red mb-4"><i data-feather="clock"></i></div>
-                                            <h6>Performance</h6>
-                                        </div>
-                                        <div class="card-footer bg-transparent pt-0 pb-5"><div class="badge badge-pill badge-light font-weight-normal px-3 py-2">7 Posts</div></div></a
-                                    >
-                                </div>
-                                <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
-                                    <a class="card card-link border-top border-top-lg border-teal h-100 lift" href="#!"
-                                        ><div class="card-body p-5">
-                                            <div class="icon-stack icon-stack-lg bg-teal-soft text-teal mb-4"><i data-feather="clock"></i></div>
-                                            <h6>Customizing</h6>
-                                        </div>
-                                        <div class="card-footer bg-transparent pt-0 pb-5"><div class="badge badge-pill badge-light font-weight-normal px-3 py-2">14 Posts</div></div>
-                                    </a>
-                                </div>
-                            </div>
-
                         </div>
                         <!--End-->   
                         <!--Waves-->
@@ -423,8 +352,4 @@
                 </footer>
             </div>
         </div>
-        <script src="js/jquery-3.4.1.min.js"></script>
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/scripts.js"></script>
-    </body>
-</html>
+<?php require_once("./includes/footer.php"); ?>
