@@ -111,7 +111,7 @@
                                 $stmt->execute([
                                     ':status' => 'published'
                                 ]);
-                                while ($posts = $stmt->fetch(PDO::FETCH_ASSOC)):
+                                while ($posts = $stmt->fetch(PDO::FETCH_ASSOC)) :
                                     $post_title = $posts['post_title'];
                                     $post_detail = substr($posts['post_detail'], 0, 140);
                                     $post_image = $posts['post_image'];
@@ -223,60 +223,26 @@
                             <h1 class="pt-5">Browse by categories:</h1>
                             <hr />
                             <div class="row features text-center mb-5">
+                            <?php
+                                $sql1 = "SELECT * FROM categories WHERE category_status = :status";
+                                $stmt = $pdo->prepare($sql1);
+                                $stmt->execute([
+                                    ':status' => 'published'
+                                ]);
+                                while ($categories = $stmt->fetch(PDO::FETCH_ASSOC)) :
+                                    $category_name = $categories['category_name'];
+                                    $category_total_posts = $categories['category_total_posts'];
+                            ?>
                                 <div class="col-lg-4 col-md-6 mb-5">
                                     <a class="card card-link border-top border-top-lg border-primary h-100 lift" href="#!"
                                         ><div class="card-body p-5">
                                             <div class="icon-stack icon-stack-lg bg-primary-soft text-primary mb-4"><i data-feather="user"></i></div>
-                                            <h6>Account</h6>
+                                            <h6><?php echo $category_name; ?></h6>
                                         </div>
-                                        <div class="card-footer bg-transparent pt-0 pb-5"><div class="badge badge-pill badge-light font-weight-normal px-3 py-2">21 Posts</div></div></a
+                                        <div class="card-footer bg-transparent pt-0 pb-5"><div class="badge badge-pill badge-light font-weight-normal px-3 py-2"><?php echo $category_total_posts . " Post" . $is_plural=($category_total_posts)>1?"s":""; ?></div></div></a
                                     >
                                 </div>
-                                <div class="col-lg-4 col-md-6 mb-5">
-                                    <a class="card card-link border-top border-top-lg border-green h-100 lift" href="#!"
-                                        ><div class="card-body p-5">
-                                            <div class="icon-stack icon-stack-lg bg-green-soft text-green mb-4"><i data-feather="clock"></i></div>
-                                            <h6>Integrations</h6>
-                                        </div>
-                                        <div class="card-footer bg-transparent pt-0 pb-5"><div class="badge badge-pill badge-light font-weight-normal px-3 py-2">9 Posts</div></div></a
-                                    >
-                                </div>
-                                <div class="col-lg-4 col-md-6 mb-5">
-                                    <a class="card card-link border-top border-top-lg border-yellow h-100 lift" href="#!"
-                                        ><div class="card-body p-5">
-                                            <div class="icon-stack icon-stack-lg bg-yellow-soft text-yellow mb-4"><i data-feather="clock"></i></div>
-                                            <h6>Billing</h6>
-                                        </div>
-                                        <div class="card-footer bg-transparent pt-0 pb-5"><div class="badge badge-pill badge-light font-weight-normal px-3 py-2">14 Posts</div></div></a
-                                    >
-                                </div>
-                                <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
-                                    <a class="card card-link border-top border-top-lg border-purple h-100 lift" href="#!"
-                                        ><div class="card-body p-5">
-                                            <div class="icon-stack icon-stack-lg bg-purple-soft text-purple mb-4"><i data-feather="clock"></i></div>
-                                            <h6>Organizations</h6>
-                                        </div>
-                                        <div class="card-footer bg-transparent pt-0 pb-5"><div class="badge badge-pill badge-light font-weight-normal px-3 py-2">17 Posts</div></div></a
-                                    >
-                                </div>
-                                <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
-                                    <a class="card card-link border-top border-top-lg border-red h-100 lift" href="#!"
-                                        ><div class="card-body p-5">
-                                            <div class="icon-stack icon-stack-lg bg-red-soft text-red mb-4"><i data-feather="clock"></i></div>
-                                            <h6>Performance</h6>
-                                        </div>
-                                        <div class="card-footer bg-transparent pt-0 pb-5"><div class="badge badge-pill badge-light font-weight-normal px-3 py-2">7 Posts</div></div></a
-                                    >
-                                </div>
-                                <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
-                                    <a class="card card-link border-top border-top-lg border-teal h-100 lift" href="#!"
-                                        ><div class="card-body p-5">
-                                            <div class="icon-stack icon-stack-lg bg-teal-soft text-teal mb-4"><i data-feather="clock"></i></div>
-                                            <h6>Customizing</h6>
-                                        </div>
-                                        <div class="card-footer bg-transparent pt-0 pb-5"><div class="badge badge-pill badge-light font-weight-normal px-3 py-2">14 Posts</div></div>
-                                    </a>
-                                </div>
+                            <?php endwhile; ?>
                             </div>
 
                         </div>
