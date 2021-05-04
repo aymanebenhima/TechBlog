@@ -106,8 +106,8 @@
                             <hr />
                             <div class="row">
                             <?php
-                                $sql = "SELECT * FROM posts WHERE post_status = :status";
-                                $stmt = $pdo->prepare($sql);
+                                $sql_posts = "SELECT * FROM posts WHERE post_status = :status";
+                                $stmt = $pdo->prepare($sql_posts);
                                 $stmt->execute([
                                     ':status' => 'published'
                                 ]);
@@ -224,8 +224,8 @@
                             <hr />
                             <div class="row features text-center mb-5">
                             <?php
-                                $sql1 = "SELECT * FROM categories WHERE category_status = :status";
-                                $stmt = $pdo->prepare($sql1);
+                                $sql_categories = "SELECT * FROM categories WHERE category_status = :status";
+                                $stmt = $pdo->prepare($sql_categories);
                                 $stmt->execute([
                                     ':status' => 'published'
                                 ]);

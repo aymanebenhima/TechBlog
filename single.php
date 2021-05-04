@@ -24,13 +24,40 @@
                         </div>
                     </nav>
 
+                    <?php
+                        if (isset($_GET['post_id'])) {
+                            $post_id = $_GET['post_id'];
+                            $sql_post_id = "SELECT * FROM posts WHERE post_id = :id";
+                            $stmt = $pdo->prepare($sql_post_id);
+                            $stmt->execute([
+                                ':id' => $post_id
+                            ]);
+                            $post = $stmt->fetch(PDO::FETCH_ASSOC);
+                            $count = $stmt->rowCount();
+                            if (!$count) {
+                                header("Location: index.php");
+                            }
+                            echo $count;
+                            $post_title = $post['post_title'];
+                            $post_category = $post['post_category'];
+                            $post_detail = $post['post_detail'];
+                            $post_image = $post['post_image'];
+                            $post_date = $post['post_date'];
+                            $post_author = $post['post_author'];
+                            $post_views = $post['post_views'];
+                        } else {
+                            header("Location: index.php");
+                        }
+                    ?>
+
                     <header class="page-header page-header-dark bg-gradient-primary-to-secondary">
                         <div class="page-header-content pt-10">
                             <div class="container text-center">
                                 <div class="row justify-content-center">
                                     <div class="col-lg-8">
-                                        <h1 class="page-header-title mb-3">Post Title</h1>
-                                        <p class="page-header-text">Date, category, time</p>
+                                        <h1 class="page-header-title mb-3"><?php echo $post_title; ?></h1>
+                                        <p class="page-header-text">Category: <?php echo $post_category; ?></p>
+                                        <p class="page-header-text">Posted by: <?php echo $post_author; ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -43,11 +70,8 @@
                         <div class="container">
                             <!--start post content-->
                             <div>
-                                <h1>This is a basic content page.</h1>
-                                <p class="lead">You can use this page as a starting point to create your own custom pages, or choose an already built example page to start development!</p>
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui quisquam animi temporibus ipsum iusto necessitatibus laudantium beatae. Eligendi dolorum laudantium numquam? Officiis nemo error animi aliquam dolor consequatur ducimus unde.</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui repellat magni eaque beatae explicabo fugit placeat earum, dolores quaerat aperiam vero adipisci quidem minus officiis blanditiis unde? Incidunt, ea ad.</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis sed illum soluta, quaerat et deleniti magnam laudantium, non omnis numquam quos placeat. Porro autem consectetur dolor minima voluptatum modi maiores.</p>
+                                <h1><?php echo $post_title; ?></h1>
+                                <p class="lead"><?php echo $post_detail; ?></p>
                             </div>
                             <!--end post content-->
 
