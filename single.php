@@ -44,7 +44,12 @@
                             $post_image = $post['post_image'];
                             $post_date = $post['post_date'];
                             $post_author = $post['post_author'];
-                            $post_views = $post['post_views'];
+                            // making views dynamic
+                            $sql_post_views = "UPDATE posts SET post_views = post_views + 1 WHERE post_id = :id";
+                            $stmt = $pdo->prepare($sql_post_views);
+                            $stmt->execute([
+                                ':id' => $post_id
+                            ]);
                         } else {
                             header("Location: index.php");
                         }
