@@ -112,6 +112,7 @@
                                     ':status' => 'published'
                                 ]);
                                 while ($posts = $stmt->fetch(PDO::FETCH_ASSOC)) :
+                                    $post_id = $posts['post_id'];
                                     $post_title = $posts['post_title'];
                                     $post_detail = substr($posts['post_detail'], 0, 140);
                                     $post_image = $posts['post_image'];
@@ -120,7 +121,7 @@
                                     $post_views = $posts['post_views'];
                             ?>
                                 <div class="col-md-6 col-xl-4 mb-5">
-                                    <a class="card post-preview lift h-100" href="#"
+                                    <a class="card post-preview lift h-100" href="single.php?post_id=<?php echo $post_id; ?>"
                                         ><img class="card-img-top" src="<?php echo $post_image; ?>" alt="<?php echo $post_image; ?>" />
                                         <div class="card-body">
                                             <h5 class="card-title"><?php echo $post_title; ?></h5>
