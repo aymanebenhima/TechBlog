@@ -75,33 +75,42 @@
                         <div class="container">
                         <h1>Most popular post:</h1>
                         <hr />
-                            <a class="card post-preview post-preview-featured lift mb-5" href="#">
+                        <?php 
+                            $sql_most_popular = "SELECT * FROM posts ORDER BY post_views DESC LIMIT  0, 1";
+                            $stmt = $pdo->prepare($sql_most_popular);
+                            $stmt->execute();
+                            while($post = $stmt->fetch(PDO::FETCH_ASSOC)):
+                                $post_id = $post['post_id'];
+                                $post_title = $post['post_title'];
+                                $post_detail = substr($post['post_detail'], 0, 300);
+                                $post_image = $post['post_image'];
+                                $post_date = $post['post_date'];
+                                $post_author = $post['post_author'];
+                                $post_views = $post['post_views'];
+
+                        ?>
+                            <a class="card post-preview post-preview-featured lift mb-5" href="single.php?post_id=<?php echo $post_id; ?>">
                                 <div class="row no-gutters">
-                                    <div class="col-lg-5"><div class="post-preview-featured-img" style='background-image: url("./img/pic1.png")'></div></div>
+                                    <div class="col-lg-5"><div class="post-preview-featured-img" style='background-image: url("<?php echo $post_image; ?>")'></div></div>
                                     <div class="col-lg-7">
                                         <div class="card-body">
                                             <div class="py-5">
-                                                <h5 class="card-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit</h5>
-                                                <p class="card-text">
-                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                                    consequat.
-                                                </p>
+                                                <h5 class="card-title"><?php echo $post_title; ?></h5>
+                                                <p class="card-text"><?php echo $post_detail; ?>...</p>
                                             </div>
                                             <hr />
                                             <div class="post-preview-meta">
                                                 <img class="post-preview-meta-img" src="./img/avatar.png" />
                                                 <div class="post-preview-meta-details">
-                                                    <div class="post-preview-meta-details-name">Aymane Benhima</div>
-                                                    <div class="post-preview-meta-details-date">Feb 5 &#xB7; 6 min read</div>
+                                                    <div class="post-preview-meta-details-name"><?php echo $post_author; ?></div>
+                                                    <div class="post-preview-meta-details-date">Posted on: <?php echo $post_date; ?></div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </a>
-
+                        <?php endwhile; ?>
                             <h1>Recent posting:</h1>
                             <hr />
                             <div class="row">
@@ -125,7 +134,7 @@
                                         ><img class="card-img-top" src="<?php echo $post_image; ?>" alt="<?php echo $post_image; ?>" />
                                         <div class="card-body">
                                             <h5 class="card-title"><?php echo $post_title; ?></h5>
-                                            <p class="card-text"><?php echo $post_detail; ?></p>
+                                            <p class="card-text"><?php echo $post_detail; ?> ...</p>
                                         </div>
                                         <div class="card-footer d-flex align-items-center justify-content-between">
                                             <div class="post-preview-meta">
@@ -164,7 +173,7 @@
                             <hr />
                             <div class="row">
                             <?php
-                                $sql_viewed_posts = "SELECT * FROM posts ORDER BY post_views DESC limit 0, 3";
+                                $sql_viewed_posts = "SELECT * FROM posts ORDER BY post_views DESC LIMIT 0, 3";
                                 $stmt = $pdo->prepare($sql_viewed_posts);
                                 $stmt->execute();
                                 while($posts = $stmt->fetch(PDO::FETCH_ASSOC)):
@@ -181,7 +190,7 @@
                                         ><img class="card-img-top" src="<?php echo $post_image; ?>" alt="<?php echo $post_image; ?>" />
                                         <div class="card-body">
                                             <h5 class="card-title"><?php echo $post_title; ?></h5>
-                                            <p class="card-text"><?php echo $post_detail; ?></p>
+                                            <p class="card-text"><?php echo $post_detail; ?> ...</p>
                                         </div>
                                         <div class="card-footer d-flex align-items-center justify-content-between">
                                             <div class="post-preview-meta">
