@@ -53,9 +53,11 @@
                         <h1>Most popular post:</h1>
                         <hr />
                         <?php 
-                            $sql_most_popular = "SELECT * FROM posts ORDER BY post_views DESC LIMIT  0, 1";
+                            $sql_most_popular = "SELECT * FROM posts WHERE post_status = :status ORDER BY post_views DESC LIMIT  0, 1";
                             $stmt = $pdo->prepare($sql_most_popular);
-                            $stmt->execute();
+                            $stmt->execute([
+                                ':status'   => 'published'
+                            ]);
                             while($post = $stmt->fetch(PDO::FETCH_ASSOC)):
                                 $post_id = $post['post_id'];
                                 $post_title = $post['post_title'];
@@ -150,9 +152,11 @@
                             <hr />
                             <div class="row">
                             <?php
-                                $sql_viewed_posts = "SELECT * FROM posts ORDER BY post_views DESC LIMIT 0, 3";
+                                $sql_viewed_posts = "SELECT * FROM posts WHERE post_status = :status ORDER BY post_views DESC LIMIT 0, 3";
                                 $stmt = $pdo->prepare($sql_viewed_posts);
-                                $stmt->execute();
+                                $stmt->execute([
+                                    ':status'   => 'published'
+                                ]);
                                 while($posts = $stmt->fetch(PDO::FETCH_ASSOC)):
                                     $post_id = $posts['post_id'];
                                     $post_title = $posts['post_title'];
@@ -195,11 +199,12 @@
                                     ':status' => 'published'
                                 ]);
                                 while ($categories = $stmt->fetch(PDO::FETCH_ASSOC)) :
+                                    $category_id = $categories['category_id'];
                                     $category_name = $categories['category_name'];
                                     $category_total_posts = $categories['category_total_posts'];
                             ?>
                                 <div class="col-lg-4 col-md-6 mb-5">
-                                    <a class="card card-link border-top border-top-lg border-primary h-100 lift" href="#!"
+                                    <a class="card card-link border-top border-top-lg border-primary h-100 lift" href="categories.php?category_id=<?php echo $category_id . "&category_name=" . $category_name; ?>"
                                         ><div class="card-body p-5">
                                             <div class="icon-stack icon-stack-lg bg-primary-soft text-primary mb-4"><i data-feather="user"></i></div>
                                             <h6><?php echo $category_name; ?></h6>
