@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>Post Comment || Admin Panel</title>
-        <link href="css/styles.css" rel="stylesheet" />
-        <link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
-        <script data-search-pseudo-elements defer src="js/all.min.js"></script>
-        <script src="js/feather.min.js"></script>
-    </head>
+<?php require_once('./includes/header.php'); ?>
     <body class="nav-fixed">
         <nav class="topnav navbar navbar-expand shadow navbar-light bg-white" id="sidenavAccordion">
             <a class="navbar-brand d-none d-sm-block" href="index.php">Admin Panel</a><button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 mr-lg-2" id="sidebarToggle" href="#"><i data-feather="menu"></i></button>
@@ -156,28 +145,4 @@
                             </div>
                         </div>
                     </div>
-                </main>
-
-                <!--start footer-->
-                <footer class="footer mt-auto footer-light">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-6 small">Copyright &#xA9; Bloggy 2020</div>
-                            <div class="col-md-6 text-md-right small">
-                                <a href="#!">Privacy Policy</a>
-                                &#xB7;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-                <!--end footer-->
-            </div>
-        </div>
-
-        <!--Script JS-->
-        <script src="js/jquery-3.4.1.min.js"></script>
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/scripts.js"></script>
-    </body>
-</html>
+                    <?php require_once('./includes/footer.php'); ?>
