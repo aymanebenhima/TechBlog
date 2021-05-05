@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>All Posts || Admin Panel</title>
+        <title>Category || Admin Panel</title>
         <link href="css/styles.css" rel="stylesheet" />
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
         <script data-search-pseudo-elements defer src="js/all.min.js"></script>
@@ -12,7 +12,7 @@
     </head>
     <body class="nav-fixed">
         <nav class="topnav navbar navbar-expand shadow navbar-light bg-white" id="sidenavAccordion">
-            <a class="navbar-brand d-none d-sm-block" href="index.html">Admin Panel</a><button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 mr-lg-2" id="sidebarToggle" href="#"><i data-feather="menu"></i></button>
+            <a class="navbar-brand d-none d-sm-block" href="index.php">Admin Panel</a><button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 mr-lg-2" id="sidebarToggle" href="#"><i data-feather="menu"></i></button>
             <ul class="navbar-nav align-items-center ml-auto">
                 
                 <li class="nav-item dropdown no-caret mr-3 dropdown-notifications">
@@ -96,7 +96,7 @@
                 <nav class="sidenav shadow-right sidenav-light">
                     <div class="sidenav-menu">
                         <div class="nav accordion" id="accordionSidenav">
-                            <a class="nav-link collapsed pt-4" href="index.html">
+                            <a class="nav-link collapsed pt-4" href="index.php">
                                 <div class="nav-link-icon"><i data-feather="activity"></i></div>
                                 Dashboard
                             </a>
@@ -106,28 +106,28 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" data-parent="#accordionSidenav">
                                 <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavLayout">
-                                    <a class="nav-link" href="all-post.html">All Posts</a>
-                                    <a class="nav-link" href="add-new.html">Add New Post</a>
+                                    <a class="nav-link" href="all-post.php">All Posts</a>
+                                    <a class="nav-link" href="add-new.php">Add New Post</a>
                                 </nav>
                             </div>
 
-                            <a class="nav-link" href="categories.html" ><div class="nav-link-icon"><i data-feather="chevrons-up"></i></div>
+                            <a class="nav-link" href="categories.php" ><div class="nav-link-icon"><i data-feather="chevrons-up"></i></div>
                                 Categories
                             </a>
 
-                            <a class="nav-link" href="pages.html" ><div class="nav-link-icon"><i data-feather="book-open"></i></div>
+                            <a class="nav-link" href="pages.php" ><div class="nav-link-icon"><i data-feather="book-open"></i></div>
                                 Pages
                             </a>
 
-                            <a class="nav-link" href="comments.html" ><div class="nav-link-icon"><i data-feather="package"></i></div>
+                            <a class="nav-link" href="comments.php" ><div class="nav-link-icon"><i data-feather="package"></i></div>
                                 Comments
                             </a>
 
-                            <a class="nav-link" href="messages.html" ><div class="nav-link-icon"><i data-feather="mail"></i></div>
+                            <a class="nav-link" href="messages.php" ><div class="nav-link-icon"><i data-feather="mail"></i></div>
                                 Messages
                             </a>
 
-                            <a class="nav-link" href="profile.html" ><div class="nav-link-icon"><i data-feather="user"></i></div>
+                            <a class="nav-link" href="profile.php" ><div class="nav-link-icon"><i data-feather="user"></i></div>
                                 Profile
                             </a>
                         </div>
@@ -148,118 +148,108 @@
                 <main>
                     <div class="page-header pb-10 page-header-dark bg-gradient-primary-to-secondary">
                         <div class="container-fluid">
-                            <div class="page-header-content">
+                            <div class="page-header-content d-flex align-items-center justify-content-between text-white">
                                 <h1 class="page-header-title">
-                                    <div class="page-header-icon"><i data-feather="layout"></i></div>
-                                    <span>All Posts</span>
+                                    <div class="page-header-icon"><i data-feather="chevrons-up"></i></div>
+                                    <span>Categories</span>
                                 </h1>
+                                <a href="new-category.php" title="Add new category" class="btn btn-white">
+                                    <div class="page-header-icon"><i data-feather="plus"></i></div>
+                                </a>
                             </div>
                         </div>
                     </div>
-
-                    <!--Start Table-->
+                    <!--Table-->
                     <div class="container-fluid mt-n10">
+
                         <div class="card mb-4">
-                            <div class="card-header">All Posts</div>
+                            <div class="card-header">All Categories</div>
                             <div class="card-body">
                                 <div class="datatable table-responsive">
                                     <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Title</th>
+                                                <th>Category Name</th>
+                                                <th>Total Posts</th>
+                                                <th>Post Views</th>
+                                                <th>Created By</th>
                                                 <th>Status</th>
-                                                <th>Category</th>
-                                                <th>Author</th>
-                                                <th>Image</th>
-                                                <th>Date</th>
-                                                <th>Details</th>
-                                                <th>Tags</th>
-                                                <th>Comments</th>
-                                                <th>Views</th>
                                                 <th>Edit</th>
                                                 <th>Delete</th>
                                             </tr>
                                         </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Title</th>
-                                                <th>Status</th>
-                                                <th>Category</th>
-                                                <th>Author</th>
-                                                <th>Image</th>
-                                                <th>Date</th>
-                                                <th>Details</th>
-                                                <th>Tags</th>
-                                                <th>Comments</th>
-                                                <th>Views</th>
-                                                <th>Edit</th>
-                                                <th>Delete</th>
-                                            </tr>
-                                            </tr>
-                                        </tfoot>
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
                                                 <td>
-                                                    <a href="#">I love coding!</a>
+                                                    <a href="#">
+                                                        Lifestyle
+                                                    </a>
                                                 </td>
+                                                <td>20</td>
+                                                <td>61</td>
+                                                <td>Aymane Benhima</td>
                                                 <td>
                                                     <div class="badge badge-success">Published
                                                     </div>
                                                 </td>
-                                                <td>Love</td>
-                                                <td>Aymane Benhima</td>
-                                                <td>Image</td>
-                                                <td>17 Nov 2020</td>
-                                                <td>Post details</td>
-                                                <td>Important Tags</td>
-                                                <td>
-                                                    <a href="comments.html">2</a>
-                                                </td>
-                                                <td>100</td>
                                                 <td>
                                                     <button class="btn btn-blue btn-icon"><i data-feather="edit"></i></button>
                                                 </td>
                                                 <td>
                                                     <button class="btn btn-red btn-icon"><i data-feather="trash-2"></i></button>
                                                 </td>
-                                            </tr>  
+                                            </tr>     
                                             <tr>
                                                 <td>2</td>
                                                 <td>
-                                                    <a href="#">I love coding!</a>
+                                                    <a href="#">
+                                                        Loved
+                                                    </a>
                                                 </td>
+                                                <td>20</td>
+                                                <td>61</td>
+                                                <td>Aymane Benhima</td>
                                                 <td>
-                                                    <div class="badge badge-warning">Draft
+                                                    <div class="badge badge-success">Published
                                                     </div>
                                                 </td>
-                                                <td>Love</td>
-                                                <td>Aymane Benhima</td>
-                                                <td>Image</td>
-                                                <td>17 Nov 2020</td>
-                                                <td>Post details</td>
-                                                <td>Important Tags</td>
-                                                <td>
-                                                    <a href="comments.html">2</a>
-                                                </td>
-                                                <td>100</td>
                                                 <td>
                                                     <button class="btn btn-blue btn-icon"><i data-feather="edit"></i></button>
                                                 </td>
                                                 <td>
                                                     <button class="btn btn-red btn-icon"><i data-feather="trash-2"></i></button>
                                                 </td>
-                                            </tr>                     
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>
+                                                    <a href="#">
+                                                        Programming
+                                                    </a>
+                                                </td>
+                                                <td>20</td>
+                                                <td>61</td>
+                                                <td>Aymane Benhima</td>
+                                                <td>
+                                                    <div class="badge badge-success">Published
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-blue btn-icon"><i data-feather="edit"></i></button>
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-red btn-icon"><i data-feather="trash-2"></i></button>
+                                                </td>
+                                            </tr>     
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
+                    
                     </div>
-                    <!--End Table-->
-
                 </main>
 
                 <!--start footer-->

@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>Add New Category || Admin Panel</title>
+        <title>Reply || Admin Panel</title>
         <link href="css/styles.css" rel="stylesheet" />
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
         <script data-search-pseudo-elements defer src="js/all.min.js"></script>
@@ -12,7 +12,7 @@
     </head>
     <body class="nav-fixed">
         <nav class="topnav navbar navbar-expand shadow navbar-light bg-white" id="sidenavAccordion">
-            <a class="navbar-brand d-none d-sm-block" href="index.html">Admin Panel</a><button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 mr-lg-2" id="sidebarToggle" href="#"><i data-feather="menu"></i></button>
+            <a class="navbar-brand d-none d-sm-block" href="index.php">Admin Panel</a><button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 mr-lg-2" id="sidebarToggle" href="#"><i data-feather="menu"></i></button>
             <ul class="navbar-nav align-items-center ml-auto">
                 
                 <li class="nav-item dropdown no-caret mr-3 dropdown-notifications">
@@ -54,13 +54,13 @@
                         <a class="dropdown-item dropdown-notifications-item" href="#!"
                             ><img class="dropdown-notifications-item-img" src="https://source.unsplash.com/vTL_qy03D1I/60x60" />
                             <div class="dropdown-notifications-item-content">
-                                <div class="dropdown-notifications-item-content-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</div>
+                                <div class="dropdown-notifications-item-content-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
                                 <div class="dropdown-notifications-item-content-details">Emily Fowler &#xB7; 58m</div>
                             </div></a
                         ><a class="dropdown-item dropdown-notifications-item" href="#!"
                             ><img class="dropdown-notifications-item-img" src="https://source.unsplash.com/4ytMf8MgJlY/60x60" />
                             <div class="dropdown-notifications-item-content">
-                                <div class="dropdown-notifications-item-content-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</div>
+                                <div class="dropdown-notifications-item-content-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
                                 <div class="dropdown-notifications-item-content-details">Diane Chambers &#xB7; 2d</div>
                             </div></a
                         ><a class="dropdown-item dropdown-notifications-footer" href="#!">Read All Messages</a>
@@ -96,7 +96,7 @@
                 <nav class="sidenav shadow-right sidenav-light">
                     <div class="sidenav-menu">
                         <div class="nav accordion" id="accordionSidenav">
-                            <a class="nav-link collapsed pt-4" href="index.html">
+                            <a class="nav-link collapsed pt-4" href="index.php">
                                 <div class="nav-link-icon"><i data-feather="activity"></i></div>
                                 Dashboard
                             </a>
@@ -106,28 +106,28 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" data-parent="#accordionSidenav">
                                 <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavLayout">
-                                    <a class="nav-link" href="all-post.html">All Posts</a>
-                                    <a class="nav-link" href="add-new.html">Add New Post</a>
+                                    <a class="nav-link" href="all-post.php">All Posts</a>
+                                    <a class="nav-link" href="add-new.php">Add New Post</a>
                                 </nav>
                             </div>
 
-                            <a class="nav-link" href="categories.html" ><div class="nav-link-icon"><i data-feather="chevrons-up"></i></div>
+                            <a class="nav-link" href="categories.php" ><div class="nav-link-icon"><i data-feather="chevrons-up"></i></div>
                                 Categories
                             </a>
 
-                            <a class="nav-link" href="pages.html" ><div class="nav-link-icon"><i data-feather="book-open"></i></div>
+                            <a class="nav-link" href="pages.php" ><div class="nav-link-icon"><i data-feather="book-open"></i></div>
                                 Pages
                             </a>
 
-                            <a class="nav-link" href="comments.html" ><div class="nav-link-icon"><i data-feather="package"></i></div>
+                            <a class="nav-link" href="comments.php" ><div class="nav-link-icon"><i data-feather="package"></i></div>
                                 Comments
                             </a>
 
-                            <a class="nav-link" href="messages.html" ><div class="nav-link-icon"><i data-feather="mail"></i></div>
+                            <a class="nav-link" href="messages.php" ><div class="nav-link-icon"><i data-feather="mail"></i></div>
                                 Messages
                             </a>
 
-                            <a class="nav-link" href="profile.html" ><div class="nav-link-icon"><i data-feather="user"></i></div>
+                            <a class="nav-link" href="profile.php" ><div class="nav-link-icon"><i data-feather="user"></i></div>
                                 Profile
                             </a>
                         </div>
@@ -150,36 +150,40 @@
                         <div class="container-fluid">
                             <div class="page-header-content">
                                 <h1 class="page-header-title">
-                                    <div class="page-header-icon"><i data-feather="edit-3"></i></div>
-                                    <span>Create New Category</span>
+                                    <div class="page-header-icon"><i data-feather="mail"></i></div>
+                                    <span>Reply</span>
                                 </h1>
                             </div>
                         </div>
                     </div>
 
-                    <!--Start Table-->
+                    <!--Start Form-->
                     <div class="container-fluid mt-n10">
                         <div class="card mb-4">
-                            <div class="card-header">Create New Category</div>
+                            <div class="card-header">Reponse Area:</div>
                             <div class="card-body">
                                 <form>
                                     <div class="form-group">
-                                        <label for="post-title">Category Name:</label>
-                                        <input class="form-control" id="post-title" type="text" placeholder="Category Name..." />
+                                        <label for="post-content">Message:</label>
+                                        <textarea class="form-control" placeholder="Type here..." id="post-content" rows="9" readonly="true">1</textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label for="post-status">Status:</label>
-                                        <select class="form-control" id="post-status">
-                                            <option>Published</option>
-                                            <option>Draft</option>
-                                        </select>
+                                        <label for="user-name">User name:</label>
+                                        <input class="form-control" id="user-name" type="text" placeholder="User name ..." readonly="true" value="Aymane Benhima" />
+                                    </div>                               
+
+                                    <div class="form-group">
+                                        <label for="post-tags">Reply:</label>
+                                        <textarea class="form-control" placeholder="Type your reply here..." id="post-tags" rows="9"></textarea>
                                     </div>
-                                    <button class="btn btn-primary mr-2 my-1" type="button">Submit now</button>
+
+                                    <button class="btn btn-primary mr-2 my-1" type="button">Send my respose</button>
                                 </form>
                             </div>
                         </div>
                     </div>
-                    <!--End Table-->
+                    <!--End Form-->
+
                 </main>
 
                 <!--start footer-->

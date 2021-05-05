@@ -42,7 +42,7 @@
                                         </form>
                                     </div>
                                     <div class="card-footer text-center">
-                                        <div class="small"><a href="signin.html">Have an account? Go to signin</a></div>
+                                        <div class="small"><a href="signin.php">Have an account? Go to signin</a></div>
                                     </div>
                                 </div>
                             </div>
