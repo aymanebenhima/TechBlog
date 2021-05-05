@@ -6,7 +6,7 @@
                         $sql_search = "SELECT * FROM posts WHERE post_status = :status AND post_title LIKE :title";
                         $stmt = $pdo->prepare($sql_search);
                         $stmt->execute([
-                            ":status" => "published",
+                            ":status" => "Published",
                             ":title" => '%' . trim($key) . '%'
                         ]);
                         $post_found = 0;
@@ -40,7 +40,7 @@
                         $sql_search = "SELECT * FROM posts WHERE post_status = :status AND post_title LIKE :title";
                         $stmt = $pdo->prepare($sql_search);
                         $stmt->execute([
-                            ":status" => "published",
+                            ":status" => "Published",
                             ":title" => '%' . trim($key) . '%'
                         ]);
                         $count = $stmt->rowCount();

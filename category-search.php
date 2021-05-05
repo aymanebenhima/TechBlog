@@ -7,7 +7,7 @@
                         $sql_search = "SELECT * FROM posts WHERE post_status = :status AND post_title LIKE :title AND post_category_id = :id";
                         $stmt = $pdo->prepare($sql_search);
                         $stmt->execute([
-                            ":status"   => "published",
+                            ":status"   => "Published",
                             ":title"    => '%' . trim($key) . '%',
                             ":id"       => $cat_id
                         ]);
@@ -42,7 +42,7 @@
                         $sql_search = "SELECT * FROM posts WHERE post_status = :status AND post_title LIKE :title AND post_category_id = :id";
                         $stmt = $pdo->prepare($sql_search);
                         $stmt->execute([
-                            ":status" => "published",
+                            ":status" => "Published",
                             ":title" => '%' . trim($key) . '%',
                             ":id"       => $cat_id
                         ]);

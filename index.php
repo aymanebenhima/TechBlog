@@ -56,7 +56,7 @@
                             $sql_most_popular = "SELECT * FROM posts WHERE post_status = :status ORDER BY post_views DESC LIMIT  0, 1";
                             $stmt = $pdo->prepare($sql_most_popular);
                             $stmt->execute([
-                                ':status'   => 'published'
+                                ':status'   => 'Published'
                             ]);
                             while($post = $stmt->fetch(PDO::FETCH_ASSOC)):
                                 $post_id = $post['post_id'];
@@ -97,7 +97,7 @@
                                 $sql_posts = "SELECT * FROM posts WHERE post_status = :status ORDER BY post_id DESC LIMIT 0, 6";
                                 $stmt = $pdo->prepare($sql_posts);
                                 $stmt->execute([
-                                    ':status' => 'published'
+                                    ':status' => 'Published'
                                 ]);
                                 while ($posts = $stmt->fetch(PDO::FETCH_ASSOC)) :
                                     $post_id = $posts['post_id'];
@@ -155,7 +155,7 @@
                                 $sql_viewed_posts = "SELECT * FROM posts WHERE post_status = :status ORDER BY post_views DESC LIMIT 0, 3";
                                 $stmt = $pdo->prepare($sql_viewed_posts);
                                 $stmt->execute([
-                                    ':status'   => 'published'
+                                    ':status'   => 'Published'
                                 ]);
                                 while($posts = $stmt->fetch(PDO::FETCH_ASSOC)):
                                     $post_id = $posts['post_id'];
@@ -196,7 +196,7 @@
                                 $sql_categories = "SELECT * FROM categories WHERE category_status = :status";
                                 $stmt = $pdo->prepare($sql_categories);
                                 $stmt->execute([
-                                    ':status' => 'published'
+                                    ':status' => 'Published'
                                 ]);
                                 while ($categories = $stmt->fetch(PDO::FETCH_ASSOC)) :
                                     $category_id = $categories['category_id'];

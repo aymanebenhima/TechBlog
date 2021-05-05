@@ -71,7 +71,7 @@
         $sql_most_popular = "SELECT * FROM posts WHERE post_status = :status AND post_category_id = :id ORDER BY post_views DESC LIMIT  0, 1";
         $stmt = $pdo->prepare($sql_most_popular);
         $stmt->execute([
-            ':status'   => 'published',
+            ':status'   => 'Published',
             ':id' => $_GET['category_id']
         ]);
         while ($post = $stmt->fetch(PDO::FETCH_ASSOC)) :
@@ -116,7 +116,7 @@
             $sql_posts = "SELECT * FROM posts WHERE post_status = :status AND post_category_id = :id ORDER BY post_id DESC LIMIT 0, 6";
             $stmt = $pdo->prepare($sql_posts);
             $stmt->execute([
-                ':status'   => 'published',
+                ':status'   => 'Published',
                 ':id'       => $_GET['category_id']
             ]);
             while ($posts = $stmt->fetch(PDO::FETCH_ASSOC)) :
@@ -174,7 +174,7 @@
             $sql_viewed_posts = "SELECT * FROM posts WHERE post_status = :status AND post_category_id = :id ORDER BY post_views DESC LIMIT 0, 3";
             $stmt = $pdo->prepare($sql_viewed_posts);
             $stmt->execute([
-                ':status' => 'published',
+                ':status' => 'Published',
                 ':id' => $_GET['category_id']
             ]);
             while ($posts = $stmt->fetch(PDO::FETCH_ASSOC)) :
