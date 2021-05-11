@@ -9,6 +9,7 @@
                             $first_name = trim($_POST['first-name']);
                             $last_name = trim($_POST['last-name']);
                             $full_name = $first_name . " " . $last_name;
+                            $nickname = trim($_POST['nickname']);
                             $email = trim($_POST['email']);
                             $password = trim($_POST['password']);
                             $confirm_password = trim($_POST['confirm-password']);
@@ -17,10 +18,11 @@
                             } else {
                                 date_default_timezone_set('Africa/Casablanca');
                                 $hash = password_hash($password, PASSWORD_BCRYPT, ['cost'=> 10]);
-                                $sql_add_user = "INSERT INTO users (user_name, user_email, user_password, user_photo, registered_on) VALUES (:name, :email, :password, :photo, :date)";
+                                $sql_add_user = "INSERT INTO users (user_name, user_nickname, user_nickname, user_password, user_photo, registered_on) VALUES (:name, :nickname, :email, :password, :photo, :date)";
                                 $stmt = $pdo->prepare($sql_add_user);
                                 $stmt->execute([
                                     ':name'     => $full_name,
+                                    ':nickname'     => $nickname,
                                     ':email'    => $email,
                                     ':password' => $hash,
                                     ':photo' => 'avatar.png',
@@ -52,7 +54,12 @@
                                                     <div class="form-group"><label class="small mb-1" for="inputLastName">Last Name</label><input name="last-name" class="form-control py-4" id="inputLastName" type="text" placeholder="Enter last name" /></div>
                                                 </div>
                                             </div>
-                                            <div class="form-group"><label class="small mb-1" for="inputEmailAddress">Email</label><input name="email" class="form-control py-4" id="inputEmailAddress" type="email" aria-describedby="emailHelp" placeholder="Enter email address" /></div>
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="inputUserNickname">Nickname</label><input name="nickname" class="form-control py-4" id="inputUserNickname" type="text" placeholder="Enter Nickname" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="inputEmailAddress">Email</label><input name="email" class="form-control py-4" id="inputEmailAddress" type="email" aria-describedby="emailHelp" placeholder="Enter email address" />
+                                            </div>
                                             <div class="form-row">
                                                 <div class="col-md-6">
                                                     <div class="form-group"><label class="small mb-1" for="inputPassword">Password</label><input name="password" class="form-control py-4" id="inputPassword" type="password" placeholder="Enter password" /></div>
