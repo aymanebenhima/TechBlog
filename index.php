@@ -164,6 +164,7 @@
                                     $post_image = $posts['post_image'];
                                     $post_date = $posts['post_date'];
                                     $post_author = $posts['post_author'];
+                                    $post_views = $posts['post_views'];
                             ?>
                                 <div class="col-md-6 col-xl-4 mb-5">
                                     <a class="card post-preview lift h-100" href="single.php?post_id=<?php echo $post_id; ?>"
