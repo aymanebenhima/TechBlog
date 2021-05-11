@@ -11,6 +11,17 @@
                             $full_name = $first_name . " " . $last_name;
                             $nickname = trim($_POST['nickname']);
                             $email = trim($_POST['email']);
+                            //Email validation - Already exist
+                            $sql_email = "SELECT * FROM users WHERE user_email = :email";
+                            $stmt_email =$pdo->prepare($sql_email);
+                            $stmt_email->execute([
+                                ':email' => $email
+                            ]);
+                            $count_email = $stmt_email->rowCount();
+                            if ($count_email) {
+                                $error_email_exist = "Email already exist!";
+                            }
+
                             $password = trim($_POST['password']);
                             $confirm_password = trim($_POST['confirm-password']);
                             if ($password != $confirm_password) {
@@ -18,7 +29,7 @@
                             } else {
                                 date_default_timezone_set('Africa/Casablanca');
                                 $hash = password_hash($password, PASSWORD_BCRYPT, ['cost'=> 10]);
-                                $sql_add_user = "INSERT INTO users (user_name, user_nickname, user_nickname, user_password, user_photo, registered_on) VALUES (:name, :nickname, :email, :password, :photo, :date)";
+                                $sql_add_user = "INSERT INTO users (user_name, user_nickname, user_email, user_password, user_photo, registered_on) VALUES (:name, :nickname, :email, :password, :photo, :date)";
                                 $stmt = $pdo->prepare($sql_add_user);
                                 $stmt->execute([
                                     ':name'     => $full_name,
@@ -40,7 +51,10 @@
                                     <div class="card-body">
                                         <form action="signup.php" method="POST">
                                         <?php
-                                            if (isset($error)) {
+                                            if (isset($error_email_exist)) {
+                                                echo "<p class='alert alert-danger'>{$error_email_exist}</p>";
+                                            }
+                                            else if (isset($error)) {
                                                 echo "<p class='alert alert-danger'>{$error}</p>";
                                             } elseif (isset($success)) {
                                                 echo "<p class='alert alert-success'>{$success}</p>";
