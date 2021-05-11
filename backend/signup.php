@@ -10,6 +10,14 @@
                             $last_name = trim($_POST['last-name']);
                             $full_name = $first_name . " " . $last_name;
                             $nickname = trim($_POST['nickname']);
+                            //Nickname validation - Already exist
+                            $sql_nickname = "SELECT * FROM users WHERE user_nickname = :nickname";
+                            $stmt_nickname =$pdo->prepare($sql_nickname);
+                            $stmt_nickname->execute([
+                                ':nickname' => $nickname
+                            ]);
+                            $count_nickname = $stmt_nickname->rowCount();
+
                             $email = trim($_POST['email']);
                             //Email validation - Already exist
                             $sql_email = "SELECT * FROM users WHERE user_email = :email";
@@ -18,15 +26,19 @@
                                 ':email' => $email
                             ]);
                             $count_email = $stmt_email->rowCount();
-                            if ($count_email) {
-                                $error_email_exist = "Email already exist!";
-                            }
 
                             $password = trim($_POST['password']);
                             $confirm_password = trim($_POST['confirm-password']);
                             if ($password != $confirm_password) {
                                 $error = "Password doesn't match!";
-                            } else {
+                            } 
+                            if ($count_nickname) {
+                                $error_nickname_exist = "Nickname already exist!";
+                            } 
+                            if ($count_email) {
+                                $error_email_exist = "Email already exist!";
+                            }
+                            else {
                                 date_default_timezone_set('Africa/Casablanca');
                                 $hash = password_hash($password, PASSWORD_BCRYPT, ['cost'=> 10]);
                                 $sql_add_user = "INSERT INTO users (user_name, user_nickname, user_email, user_password, user_photo, registered_on) VALUES (:name, :nickname, :email, :password, :photo, :date)";
@@ -54,7 +66,10 @@
                                             if (isset($error_email_exist)) {
                                                 echo "<p class='alert alert-danger'>{$error_email_exist}</p>";
                                             }
-                                            else if (isset($error)) {
+                                            if (isset($error_nickname_exist)) {
+                                                echo "<p class='alert alert-danger'>{$error_nickname_exist}</p>";
+                                            }
+                                            if (isset($error)) {
                                                 echo "<p class='alert alert-danger'>{$error}</p>";
                                             } elseif (isset($success)) {
                                                 echo "<p class='alert alert-success'>{$success}</p>";
