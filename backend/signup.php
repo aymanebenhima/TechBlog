@@ -1,4 +1,4 @@
-<?php require_once('./../includes/db.php'); ?>
+
 <?php require_once('./includes/header.php'); ?>
     <body class="bg-primary">
         <div id="layoutAuthentication">
@@ -15,14 +15,15 @@
                             if ($password != $confirm_password) {
                                 $error = "Password doesn't match!";
                             } else {
+                                $hash = password_hash($password, PASSWORD_BCRYPT, ['cost'=> 10]);
                                 $sql_add_user = "INSERT INTO users (user_name, user_email, user_password, user_photo, registered_on) VALUES (:name, :email, :password, :photo, :date)";
                                 $stmt = $pdo->prepare($sql_add_user);
                                 $stmt->execute([
                                     ':name'     => $full_name,
                                     ':email'    => $email,
-                                    ':password' => $password,
+                                    ':password' => $hash,
                                     ':photo' => 'avatar.png',
-                                    ':date' => date('F, y')
+                                    ':date' => date('M n, Y') . ' at ' . date('h:i A')
                                 ]);
                             }
                         }
