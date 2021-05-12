@@ -1,5 +1,8 @@
-<?php $get_title = "Search by Category"; ?>
-<?php require_once("./includes/header.php"); ?>
+<?php
+    $get_title = "Search by Category";
+    require_once("./includes/head.php");
+    require_once("./includes/header.php");
+?>
                 <?php
                     if (isset($_POST['search-key'])) {
                         $key = $_POST['search-key'];

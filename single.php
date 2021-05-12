@@ -1,5 +1,8 @@
-<?php $get_title = "You are reading the post "; ?>
-<?php require_once("./includes/header.php"); ?>
+<?php
+    $get_title = "You are reading the post ";
+    require_once("./includes/head.php");
+    require_once("./includes/header.php");
+?>
 
 
                     <?php

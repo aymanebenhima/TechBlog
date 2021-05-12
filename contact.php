@@ -1,5 +1,8 @@
-<?php $get_title = "Contact us"; ?>
-<?php require_once("./includes/header.php"); ?>
+<?php
+    $get_title = "Contact us";
+    require_once("./includes/head.php");
+    require_once("./includes/header.php");
+?>
 
                     <header class="page-header page-header-dark bg-gradient-primary-to-secondary">
                         <div class="page-header-content pt-10">

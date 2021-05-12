@@ -1,5 +1,8 @@
-<?php $get_title = "Categories"; ?>
-<?php require_once("./includes/header.php"); ?>
+<?php
+    $get_title = "Categories";
+    require_once("./includes/head.php");
+    require_once("./includes/header.php");
+?>
 
 <header class="page-header page-header-dark bg-secondary">
     <div class="page-header-content">
