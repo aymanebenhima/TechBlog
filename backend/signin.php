@@ -1,4 +1,7 @@
-<?php require_once('./includes/header.php'); ?>
+<?php
+    session_start();
+    require_once('./includes/header.php'); 
+?>
 
 <body class="bg-primary">
     <div id="layoutAuthentication">
@@ -25,8 +28,14 @@
                                 } else if ($count == 1) {
                                     $user = $stmt->fetch(PDO::FETCH_ASSOC);
                                     $user_password_hash = $user['user_password'];
+                                    $user_name = $user['user_name'];
+                                    $user_role = $user['user_role'];
                                     if (password_verify($password, $user_password_hash)) {
                                         $success = "Sign in successful!";
+                                        $_SESSION['user_name'] = $user_name;
+                                        $_SESSION['user_role'] = $user_role;
+                                        $_SESSION['login'] = 'success';
+                                        header("Refresh:2;url=../index.php");
                                     } else {
                                         $error_password = "Wrong password!";
                                     }
