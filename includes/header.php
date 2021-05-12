@@ -1,17 +1,4 @@
-<?php require_once("db.php"); ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content />
-        <meta name="author" content />
-        <title><?php echo $get_title; ?> - Bloggy</title>
-        <link href="css/styles.css" rel="stylesheet" />
-        <link rel="icon" type="image/x-icon" href="img/favicon.png" />
-    </head>
-    <body>
+<?php session_start(); ?>
     <div id="layoutDefault">
             <div id="layoutDefault_content">
                 <main>
@@ -31,8 +18,14 @@
                                         <a class="nav-link" href="about.php">About</a>
                                     </li>
                                 </ul>
-                                <a class="btn-teal btn rounded-pill px-4 ml-lg-4" href="backend/signin.php">Sign in<i class="fas fa-arrow-right ml-1"></i></a>
-                                <a class="btn-teal btn rounded-pill px-4 ml-lg-4" href="backend/signup.php">Sign up<i class="fas fa-arrow-right ml-1"></i></a>
+                                <?php if (isset($_SESSION['login'])) : ?>
+                                    <form action="index.php" method="POST">
+                                        <button type="submit" class="btn-teal btn rounded-pill px-4 ml-lg-4">Sign out - <?php echo $_SESSION['user_name']; ?><i class="fas fa-arrow-right ml-1"></i></button>
+                                    </form>
+                                <?php else: ?>
+                                    <a class="btn-teal btn rounded-pill px-4 ml-lg-4" href="backend/signin.php">Sign in<i class="fas fa-arrow-right ml-1"></i></a>
+                                    <a class="btn-teal btn rounded-pill px-4 ml-lg-4" href="backend/signup.php">Sign up<i class="fas fa-arrow-right ml-1"></i></a>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </nav>
