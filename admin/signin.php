@@ -2,6 +2,10 @@
     $get_title = "Sign in to Bloggy Tech";
     session_start();
     require_once("../includes/db.php");
+    
+    if(isset($_SESSION['login']) || isset($_COOKIE['_uid_']) || isset($_COOKIE['_uiid_'])) {
+        header("Location: ../index.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

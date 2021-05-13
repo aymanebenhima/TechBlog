@@ -1,7 +1,12 @@
 
 <?php
     $get_title = "Sign up to Bloggy Tech";
+    session_start();
     require_once("../includes/db.php");
+
+    if(isset($_SESSION['login']) || isset($_COOKIE['_uid_']) || isset($_COOKIE['_uiid_'])) {
+        header("Location: ../index.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
