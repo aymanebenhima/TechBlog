@@ -19,7 +19,15 @@
                                 header("Location: index.php");
                             }
                             $post_title = $post['post_title'];
-                            $post_category = $post['post_category_id'];
+                            $post_category_id = $post['post_category_id'];
+                            $sql = "SELECT * FROM categories WHERE category_id = :id";
+                            $stmt = $pdo->prepare($sql);
+                            $stmt->execute([
+                                ':id' => $post_category_id
+                            ]);
+                            $category = $stmt->fetch(PDO::FETCH_ASSOC);
+                            $post_category = $category['category_name'];
+                            
                             $post_detail = $post['post_detail'];
                             $post_image = $post['post_image'];
                             $post_date = $post['post_date'];
