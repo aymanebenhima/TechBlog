@@ -1,8 +1,20 @@
 <?php
+    $get_title = "Sign in to Bloggy Tech";
     session_start();
-    require_once('./includes/header.php'); 
+    require_once("../includes/db.php");
 ?>
-
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title><?php echo $get_title; ?></title>
+        <link href="css/styles.css" rel="stylesheet" />
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
+        <script data-search-pseudo-elements defer src="js/all.min.js"></script>
+        <script src="js/feather.min.js"></script>
+    </head>
 <body class="bg-primary">
     <div id="layoutAuthentication">
         <div id="layoutAuthentication_content">
@@ -32,6 +44,17 @@
                                     $user_role = $user['user_role'];
                                     if (password_verify($password, $user_password_hash)) {
                                         $success = "Sign in successful!";
+                                        if (!empty($_POST['check'])) {
+                                            // userId
+                                            $user_id = $user['user_id'];
+                                            $d_user_id = base64_encode($user_id);
+                                            // userNickname
+                                            $user_nickname = $user['user_nickname'];
+                                            $d_user_nickname = base64_encode($user_nickname);
+                                            // cookie
+                                            setcookie('_uid_', $d_user_id, time() + 60*60*24, '', '', '', true);
+                                            setcookie('_uiid_', $d_user_nickname, time() + 60*60*24, '', '', '', true);
+                                        }
                                         $_SESSION['user_name'] = $user_name;
                                         $_SESSION['user_role'] = $user_role;
                                         $_SESSION['login'] = 'success';

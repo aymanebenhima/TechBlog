@@ -1,4 +1,7 @@
-<?php require_once('./includes/header.php'); ?>
+<?php
+    $get_title = "Dashboard || Admin Panel";
+    require_once('./includes/header.php');
+?>
     <body class="nav-fixed">
         <nav class="topnav navbar navbar-expand shadow navbar-light bg-white" id="sidenavAccordion">
             <a class="navbar-brand d-none d-sm-block" href="index.php">Admin Panel</a><button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 mr-lg-2" id="sidebarToggle" href="#"><i data-feather="menu"></i></button>

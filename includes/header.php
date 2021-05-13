@@ -19,12 +19,12 @@
                                     </li>
                                 </ul>
                                 <?php if (isset($_SESSION['login'])) : ?>
-                                    <form action="index.php" method="POST">
+                                    <form action="signout.php">
                                         <button type="submit" class="btn-teal btn rounded-pill px-4 ml-lg-4">Sign out - <?php echo $_SESSION['user_name']; ?><i class="fas fa-arrow-right ml-1"></i></button>
                                     </form>
                                 <?php else: ?>
-                                    <a class="btn-teal btn rounded-pill px-4 ml-lg-4" href="backend/signin.php">Sign in<i class="fas fa-arrow-right ml-1"></i></a>
-                                    <a class="btn-teal btn rounded-pill px-4 ml-lg-4" href="backend/signup.php">Sign up<i class="fas fa-arrow-right ml-1"></i></a>
+                                    <a class="btn-teal btn rounded-pill px-4 ml-lg-4" href="admin/signin.php">Sign in<i class="fas fa-arrow-right ml-1"></i></a>
+                                    <a class="btn-teal btn rounded-pill px-4 ml-lg-4" href="admin/signup.php">Sign up<i class="fas fa-arrow-right ml-1"></i></a>
                                 <?php endif; ?>
                             </div>
                         </div>
