@@ -1,6 +1,7 @@
 <?php
     $get_title = "Search by Category";
     require_once("./includes/head.php");
+    $current_page = basename(__FILE__); 
     require_once("./includes/header.php");
 ?>
                 <?php
