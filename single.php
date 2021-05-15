@@ -1,7 +1,7 @@
 <?php
     $get_title = "You are reading the post ";
     require_once("./includes/head.php");
-    $current_page = basename(__FILE__); 
+    $current_page = basename(__FILE__) . '?post_id='. $_GET['post_id'];
     require_once("./includes/header.php");
 ?>
 
