@@ -36,8 +36,24 @@
                                     header("Location: {$current_page}");
                                 }
                                 if (isset($_SESSION['login'])) : ?>
+                                    <?php 
+                                        $user_id = base64_decode($_COOKIE['_uid_']);
+                                        $user_nickname = base64_decode($_COOKIE['_uiid_']);
+                                        $sql = "SELECT * FROM users WHERE user_id = :id AND user_nickname = :nickname";
+                                        $stmt = $pdo->prepare($sql);
+                                        $stmt->execute([
+                                            ':id' => $user_id,
+                                            ':nickname' => $user_nickname,
+                                        ]);
+                                        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+                                        $user_name = $user['user_name'];
+                                        $user_role = $user['user_role'];
+                                        $_SESSION['user_name'] = $user_nickname;
+                                        $_SESSION['user_role'] = $user_role;
+                                        $_SESSION['login'] = 'success';
+                                    ?>
                                     <form action="<?php echo $current_page ?>" method="POST">
-                                        <button name="reset" class="btn-teal btn rounded-pill px-4 ml-lg-4">Sign out - <?php echo $_SESSION['user_name']; ?><i class="fas fa-arrow-right ml-1"></i></button>
+                                        <button name="reset" class="btn-teal btn rounded-pill px-4 ml-lg-4">Sign out - <?php echo $user_name; ?><i class="fas fa-arrow-right ml-1"></i></button>
                                     </form>
                                 <?php else: ?>
                                     <?php if (!isset($_COOKIE['_uid_']) && !isset($_COOKIE['_uiid_'])) : ?>
@@ -61,7 +77,7 @@
                                             $_SESSION['login'] = 'success';
                                         ?>
                                             <form action="<?php echo $current_page ?>">
-                                                <button type="submit" name="reset" class="btn-teal btn rounded-pill px-4 ml-lg-4">Sign out - <?php echo $_SESSION['user_name']; ?><i class="fas fa-arrow-right ml-1"></i></button>
+                                                <button type="submit" name="reset" class="btn-teal btn rounded-pill px-4 ml-lg-4">Sign out - <?php echo $user_name; ?><i class="fas fa-arrow-right ml-1"></i></button>
                                             </form>
                                     <?php endif; ?>
 
